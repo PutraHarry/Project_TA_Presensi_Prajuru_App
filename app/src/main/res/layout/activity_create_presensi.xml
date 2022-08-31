@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    tools:context=".activity.OutletActivity">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/topbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        tools:context=".activity.HomeActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/home_toolbar"
+                style="@style/Widget.App.Toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
+                app:title="Presensi Baru"
+                app:titleTextAppearance="@style/TextAppearance.App.AppBarTitle" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:fillViewport="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/cabang_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="2dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:padding="16dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/presensi_new_kegiatan_card"
+                            android:layout_margin="4dp"
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="16dp">
+
+                                    <!-- Title, secondary and supporting text -->
+                                    <TextView
+                                        android:id="@+id/presensi_new_kegiatan_nama_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Nama Kegiatan"
+                                        android:textStyle="bold"
+                                        android:textAppearance="?attr/textAppearanceHeadline5"
+                                        />
+                                    <TextView
+                                        android:id="@+id/presensi_new_kegiatan_deskripsi_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="8dp"
+                                        android:text="Deskripsi Kegiatan"
+                                        android:textAppearance="?attr/textAppearanceBody2"
+                                        android:textColor="?android:attr/textColorSecondary"
+                                        />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <Button
+                            android:id="@+id/presensi_new_kegiatan_select_button"
+                            android:layout_margin="4dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:text="Pilih Kegiatan">
+                        </Button>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="2dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:padding="16dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:id="@+id/presensi_new_krama_select"
+                            android:layout_margin="4dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:text="Pilih Krama">
+                        </Button>
+
+                        <TextView
+                            android:id="@+id/krama_selected_text"
+                            android:layout_width="wrap_content"
+                            android:layout_margin="4dp"
+                            android:layout_height="wrap_content"
+                            android:text="0 Krama dipilih"
+                            android:textStyle="bold"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/telegram_bot_add_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="2dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:padding="16dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/presensi_new_name_layout"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:startIconDrawable="@drawable/ic_twotone_description_24"
+                            android:hint="Nama Presensi"
+                            app:counterMaxLength="70"
+                            app:counterEnabled="true"
+                            app:errorEnabled="true">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/presensi_new_name_field"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:ems="10"
+                                android:inputType="textPersonName" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/presensi_new_code_layout"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:startIconDrawable="@drawable/ic_twotone_description_24"
+                            android:hint="Kode Presensi"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="6"
+                            app:errorEnabled="true">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/presensi_new_code_field"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:ems="10"
+                                android:inputType="textPersonName" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/presensi_new_keterangan_layout"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Keterangan">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/presensi_new_keterangan_field"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:ems="10"
+                                android:minLines="4"
+                                android:inputType="textMultiLine" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <View style="@style/Divider"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="8dp">
+                        </View>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_percent="0.5" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/presensi_new_tanggal_open_layout"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:hint="Pilih tanggal buka"
+                                app:errorEnabled="true"
+                                app:layout_constraintEnd_toStartOf="@id/guideline2"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginEnd="4dp"
+                                app:startIconDrawable="@drawable/ic_twotone_calendar_today_24">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/presensi_new_tanggal_open_field"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:cursorVisible="false"
+                                    android:ems="10"
+                                    android:focusable="true"
+                                    android:focusableInTouchMode="true"
+                                    android:inputType="none" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/presensi_new_time_open_layout"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:hint="Pilih waktu buka"
+                                app:errorEnabled="true"
+                                android:layout_marginStart="4dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/guideline2"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:startIconDrawable="@drawable/ic_twotone_access_time_24">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/presensi_new_time_open_field"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:cursorVisible="false"
+                                    android:ems="10"
+                                    android:focusable="true"
+                                    android:focusableInTouchMode="true"
+                                    android:inputType="none" />
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <View style="@style/Divider"
+                            android:layout_marginBottom="12dp">
+                        </View>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.5" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/presensi_new_tanggal_close_layout"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="4dp"
+                                android:hint="Pilih tanggal tutup"
+                                app:errorEnabled="true"
+                                app:startIconDrawable="@drawable/ic_twotone_calendar_today_24"
+                                app:layout_constraintEnd_toStartOf="@id/guideline3"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/presensi_new_tanggal_close_field"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:cursorVisible="false"
+                                    android:ems="10"
+                                    android:focusable="true"
+                                    android:focusableInTouchMode="true"
+                                    android:inputType="none" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/presensi_new_time_close_layout"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:hint="Pilih waktu tutup"
+                                app:errorEnabled="true"
+                                android:layout_marginStart="4dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/guideline3"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:startIconDrawable="@drawable/ic_twotone_access_time_24">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/presensi_new_time_close_field"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:cursorVisible="false"
+                                    android:ems="10"
+                                    android:focusable="true"
+                                    android:focusableInTouchMode="true"
+                                    android:inputType="none" />
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <Button
+                    android:id="@+id/presensi_new_simpan_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="Tambah Presensi"
+                    android:textColor="@color/white"
+                    app:iconTint="@color/white"
+                    app:backgroundTint="@color/primaryColor"
+                    app:icon="@drawable/ic_twotone_check_24"
+                    android:textAlignment="center"
+                    app:iconGravity="textStart" />
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

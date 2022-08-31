@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Presensi Prajuru</string>
+    <string name="sikramat_endpoint">https://sikramat.ngaeapp.com</string>
+</resources>
